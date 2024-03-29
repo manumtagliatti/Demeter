@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Vendas</title>
+    <link rel="stylesheet" th:href="@{/css/historicoDeVendas.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Adicione as bibliotecas pdfmake e vfs_fonts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+
+    <!-- Adicione a biblioteca xlsx -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <button id="voltar" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+        <h1>Histórico de Vendas</h1>
+    </header>
+
+    <div class="main-content">
+        <section class="container">
+            <div class="header">
+                <h2>Histórico de vendas</h2>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="inputPesquisa" placeholder="Digite o CNPJ para buscar">
+                <button id="btnPesquisar">🔍</button>
+            </div>
+            <div class="historico-table-container">
+                <!-- Adicione a div para exibir a mensagem -->
+                <div id="mensagemCadastro" class="mensagem-cadastro"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CNPJ</th>
+                            <th>Nome Cliente</th>
+                            <th>Código da Venda</th>
+                            <th>Quantidade total</th>
+                            <th>Valor total</th>
+                            <th>Data da venda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os dados dos clientes serão inseridos aqui pelo JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="gerarRelatorios" class="gerarRelatorios">
+            <button id="btnGerarPDF">Gerar Relatório em PDF</button>
+            <button id="btnGerarExcel">Gerar Relatório em Excel</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Deméter</p>
+    </footer>
+
+    <script th:src="@{/js/historicoDeVendas.js}"></script>
+</body>
+
+</html>

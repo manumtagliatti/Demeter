@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Client</title>
+</head>
+<body>
+<h1>WebSocket Client</h1>
+<div id="messages"></div>
+<input type="text" id="messageInput" placeholder="Type a message">
+<button onclick="sendMessage()">Send Message</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script>
+    const socket = new SockJS('http://localhost:3000/websocket');
+    const stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, () => {
+        console.log('WebSocket Client Connected');
+
+        stompClient.subscribe('/topic/receive', (response) => {
+            try {
+                const content = JSON.parse(response.body).content;
+                console.log(`MESSAGE: + ${content}`)
+                displayMessage(`Received: ${content}`);
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+                // Handle non-JSON response here
+            }
+        });
+    });
+
+    function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value;
+
+        if (message.trim() !== '') {
+            stompClient.send("/app/hello", {}, JSON.stringify({ content: message }));
+        }
+    }
+
+    function displayMessage(message) {
+        const messagesDiv = document.getElementById('messages');
+        const messageElement = document.createElement('p');
+        messageElement.textContent = message;
+        messagesDiv.appendChild(messageElement);
+    }
+</script>
+</body>
+</html>

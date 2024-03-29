@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deméter</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+
+<body>
+<header>
+    <h1>Deméter</h1>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a th:href="@{/registro}">Cadastro</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-content">
+    <section id="inicio">
+        <h2>Bem-vindo ao Deméter</h2>
+        <p>
+            Oferecemos produtos agrícolas de alta qualidade para atender às suas
+            necessidades.
+        </p>
+    </section>
+
+    <section id="sobre">
+        <div id="sobre-nos">
+            <div class="sobre-nos-container">
+                <div class="texto-container">
+                    <h2>Sobre Deméter</h2>
+                    <p>
+                        Deméter é dedicada a fornecer soluções inovadoras para a agricultura,
+                        promovendo o crescimento sustentável e a eficiência nos processos agrícolas.
+                    </p>
+                </div>
+                <div class="imagem-container">
+                    <img th:src="@{/img/logoD.jpg}" alt="Imagem de Agricultura" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="produtos-container">
+            <div class="produto-item">
+                <div class="produto-info">
+                    <h3>Controle De Estoque</h3>
+                    <p>Gerencie eficientemente o estoque da sua fazenda com nossa solução avançada.</p>
+                    <a th:href="@{/nossos-produtos}">Saiba mais</a>
+                </div>
+            </div>
+            <div class="produto-item">
+                <div class="produto-info">
+                    <h3>Controle Financeiro</h3>
+                    <p>Acompanhamento de despesas e lucros. Disponibiliza relatórios personalizados para ajudar na tomada de decisão.</p>
+                    <a th:href="@{/nossos-produtos}">Saiba mais</a>
+                </div>
+            </div>
+
+            <!-- Adicione mais produtos aqui -->
+
+            <div class="produto-item">
+                <div class="produto-info">
+                    <h3>Dashboard</h3>
+                    <p>Um sistema de Dashboard para facil visualização.</p>
+                    <a th:href="@{/nossos-produtos}">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contato">
+        <h2>Contato</h2>
+        <div class="contato-container">
+            <div class="info-contato">
+                <h3>Email</h3>
+                <p>Tem alguma dúvida? Entre em contato conosco por e-mail.</p>
+                <a href="mailto:contato@demeter.com">contato@demeter.com</a>
+            </div>
+            <div class="info-contato">
+                <h3>Telefone</h3>
+                <p>Entre em contato conosco por telefone durante o horário comercial.</p>
+                <p>(19) 99555-5280</p>
+            </div>
+            <div class="info-contato">
+                <h3>Chat</h3>
+                <p>
+                    Precisa de ajuda instantânea? Utilize nosso chat online para suporte em tempo real.
+                </p>
+                <button onclick="openChat()">Iniciar Chat</button>
+            </div>
+        </div>
+    </section>
+    <section id="comentarios">
+        <h2>Comentários dos Usuários</h2>
+        <div class="comentarios-container" id="area-comentarios">
+            <div class="comentario-box">
+                <div class="comentario-header">
+                    <img src="https://placekitten.com/40/40" alt="Imagem do Usuário" />
+                    <span>Nome do Usuário</span>
+                </div>
+                <p class="comentario-texto">
+                    TEXTO PARA COLOCAR O COMENTARIO
+                </p>
+            </div>
+
+            <!-- Adicione mais comentários aqui -->
+
+        </div>
+    </section>
+</div>
+<footer>
+    <p>&copy; 2023 Deméter</p>
+</footer>
+
+<div class="chatbot" id="chatbot-container">
+    <div class="chat-header">
+        <span class="chat-title">Suporte</span>
+        <button class="close-btn" onclick="closeChat()">✕</button>
+    </div>
+    <div class="messages">
+        <p class="bot-message">Olá! Escolha um tema de dúvida:</p>
+    </div>
+    <div class="options">
+        <input type="text" id="messageInput" placeholder="Type a message">
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+<script>
+    // Seu script existente para WebSocket e funcionalidade de chat
+</script>
+</body>
+
+</html>

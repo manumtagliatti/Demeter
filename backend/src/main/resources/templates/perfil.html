@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <!-- Link atualizado do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/perfil.css}">
+</head>
+
+<body>
+    <header class="header">
+        <h1>Perfil do Usuário</h1>
+        <button class="exit-button" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Sair
+        </button>
+    </header>
+    <div class="main-content">
+        <section id="informacaoPerfil" class="informacaoPerfil">
+            <div class="user-image-container">
+                <img id="user-image" th:src="@{img/LogoD.jpg}" alt="Minha Foto de Perfil" class="user-image">
+    
+            </div>
+            <div class="user-details">
+                <h1 class="user-name" id="nomeUsuario">Nome do Usuário</h1>
+                <p class="user-email" id="emailUsuario">usuario@exemplo.com</p>
+            </div>
+        </section>
+
+        <section id="botoes" class="botoes">
+            <button class="botao" id="btnEstoque" onclick="redirectToPage('/controle-estoque')">Controle de Estoque</button>
+            <button class="botao" id="btnFinanceiro" onclick="redirectToPage('/registro-despesas')">Registro de Despesas</button>
+            <button class="botao" id="btnCadastrarClientes" onclick="redirectToPage('/cadastrar-clientes')">Cadastrar Clientes</button>
+            <button class="botao" id="btnListaProdutos" onclick="redirectToPage('/lista-produtos')">Lista de Produtos</button>
+            <button class="botao" id="btnCadastrarVendas" onclick="redirectToPage('/cadastrar-vendas')">Cadastrar Vendas</button>
+            <button class="botao" id="btnListaClientes" onclick="redirectToPage('/lista-clientes')">Lista de Clientes</button>
+            <button class="botao" id="btnHistoricoVendas" onclick="redirectToPage('/historico-vendas')">Histórico de Vendas</button>
+            <button class="botao" id="btnFeedback" onclick="redirectToPage('/cadastroFeedback')">Feedback</button>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 Deméter</p>
+    </footer>
+    <script th:src="@{/js/perfil.js}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

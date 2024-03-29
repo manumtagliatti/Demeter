@@ -1,0 +1,75 @@
+/* Estilos gerais */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #2E7D32;
+    color: #fff;
+    padding: 2px 0;
+    text-align: center;
+}
+
+/* Estilos para a seção de gráfico */
+.dashboard {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    flex: 1;
+}
+
+/* Estilos para o contêiner do gráfico */
+.chart-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    background-color: #2E7D32;
+    color: #fff;
+    padding: 3px 0;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-voltar {
+    background-color: transparent;
+    border: none;
+    color: #fff; /* Mudança para branco para ser visível no fundo verde */
+    position: absolute; /* Adicionado para posicionar o botão no canto superior esquerdo */
+    top: 15px; /* Ajuste conforme necessário */
+    left: 15px; /* Ajuste conforme necessário */
+    font-size: 16px;
+}
+
+.btn-voltar i {
+    margin-right: 5px;
+}
+
+.btn-voltar:hover {
+    color: #aaa; /* Mudança para um tom de cinza quando o mouse estiver sobre ele */
+}
+.btn-voltar:hover {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+}
